@@ -53,27 +53,23 @@ Output: [0,1]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms (beats 66.31%)  
-**Memory:** 14.9 MB (beats 40.72%)  
-**Submitted:** 2026-08-07T05:02:24.028Z  
+**Runtime:** 43 ms (beats 24.43%)  
+**Memory:** 14.2 MB (beats 64.06%)  
+**Submitted:** 2026-08-14T04:40:18.957Z  
 
 ```cpp
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> num_map;
-        
-        for (int i = 0; i < nums.size(); ++i) {
-            int complement = target - nums[i];
-            
-            if (num_map.find(complement) != num_map.end()) {
-                return {num_map[complement], i};
+        int i;
+        int j;
+        for(int i=0;i<nums.size();i++){
+            for(int j=i+1;j<nums.size();j++){
+                if(nums[i]+nums[j]==target){
+                    return {i,j};
+                }
             }
-            
-            num_map[nums[i]] = i;
-        }
-        
-        return {};
+        }return {};
     }
 };
 ```
