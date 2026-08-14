@@ -41,21 +41,19 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-14T04:59:17.075Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 97.6 MB (beats 7.17%)  
+**Submitted:** 2026-08-14T05:10:19.295Z  
 
 ```cpp
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int min=prices[0];
+        int mini=prices[0];
         int maxi=0;;
         for(int i=0;i<prices.size();i++){
-            if(prices[i+1]<min){
-                min=prices[i+1];
-            }
-            int currentprofit=prices[i]-min;
+            mini=min(mini,prices[i]);
+            int currentprofit=prices[i]-mini;
             maxi=max(currentprofit,maxi);
         }return maxi;
     }
